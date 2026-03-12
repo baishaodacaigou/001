@@ -1,0 +1,105 @@
+<view class="page-index">
+  <view class="search-bar">
+    <view class="search-box">
+      <image class="search-icon" src="/images/search.png" mode="aspectFit" />
+      <input 
+        class="search-input"
+        placeholder="搜索GPU服务器、电竞主机..."
+        value="{{searchValue}}"
+        onInput="onSearchInput"
+        onConfirm="onSearchConfirm"
+        confirm-type="search"
+      />
+      <view class="search-btn" onTap="onSearch">搜索</view>
+    </view>
+  </view>
+
+  <swiper
+    a:if="{{bannerList.length > 0}}"
+    class="banner-swiper"
+    indicator-dots="{{true}}"
+    autoplay="{{true}}"
+    circular="{{true}}"
+    interval="3000"
+  >
+    <swiper-item a:for="{{bannerList}}" a:key="id" data-url="{{item.url}}" onTap="onBannerTap">
+      <image class="banner-image" src="{{item.image}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <view class="category-section">
+    <view class="category-grid">
+      <view
+        class="category-item"
+        a:for="{{categoryList}}"
+        a:key="id"
+        data-type="{{item.type}}"
+        onTap="onCategoryTap"
+      >
+        <image class="category-icon" src="{{item.icon}}" mode="aspectFit" />
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="notice-bar">
+    <image class="notice-icon" src="/images/notice.png" mode="aspectFit" />
+    <text class="notice-text">芝麻信用650分以上可享免押租赁，最高免押额度50000元</text>
+  </view>
+
+  <view class="recommend-section">
+    <view class="section-header">
+      <text class="section-title">热门推荐</text>
+      <view class="section-more" onTap="onCategoryTap">
+        <text>查看全部</text>
+        <text class="arrow">></text>
+      </view>
+    </view>
+    
+    <view class="product-list">
+      <view
+        class="product-card"
+        a:for="{{recommendList}}"
+        a:key="id"
+        data-id="{{item.id}}"
+        onTap="onProductTap"
+      >
+        <view class="product-image-wrapper">
+          <image class="product-image" src="{{item.image}}" mode="aspectFill" />
+        </view>
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+          <view class="product-tags">
+            <text class="tag" a:for="{{item.tags}}" a:for-item="tag" a:key="index">{{tag}}</text>
+          </view>
+          <view class="product-price-row">
+            <view class="price-box">
+              <text class="price-unit">¥</text>
+              <text class="price-value">{{item.daily_price}}</text>
+              <text class="price-suffix">/天起</text>
+            </view>
+            <text class="monthly-price">月租¥{{item.monthly_price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="feature-section">
+    <view class="feature-item">
+      <image class="feature-icon" src="/images/credit.png" mode="aspectFit" />
+      <text class="feature-title">信用免押</text>
+      <text class="feature-desc">芝麻信用650分免押</text>
+    </view>
+    <view class="feature-item">
+      <image class="feature-icon" src="/images/delivery.png" mode="aspectFit" />
+      <text class="feature-title">极速发货</text>
+      <text class="feature-desc">下单后24小时内发货</text>
+    </view>
+    <view class="feature-item">
+      <image class="feature-icon" src="/images/service.png" mode="aspectFit" />
+      <text class="feature-title">无忧售后</text>
+      <text class="feature-desc">全程技术支持保障</text>
+    </view>
+  </view>
+</view>

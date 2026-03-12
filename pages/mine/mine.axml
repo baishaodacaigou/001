@@ -1,0 +1,91 @@
+<view class="page-mine">
+  <view class="user-header">
+    <view class="user-info" a:if="{{isLoggedIn}}">
+      <image class="avatar" src="{{userInfo.avatar || '/images/default-avatar.png'}}" mode="aspectFill" />
+      <view class="user-detail">
+        <text class="nickname">{{userInfo.nickname || '肌肉人用户'}}</text>
+        <view class="credit-box">
+          <image class="credit-icon" src="/images/zhima.png" mode="aspectFit" />
+          <text class="credit-score">芝麻信用 {{creditScore}}分</text>
+          <text class="credit-free" a:if="{{creditFreeAmount > 0}}">免押额度¥{{creditFreeAmount}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="login-prompt" a:else onTap="handleLogin">
+      <image class="avatar default" src="/images/default-avatar.png" mode="aspectFill" />
+      <text class="login-text">点击登录</text>
+      <text class="login-tip">登录后享受更多服务</text>
+    </view>
+  </view>
+
+  <view class="order-section">
+    <view class="section-header">
+      <text class="section-title">我的订单</text>
+      <view class="section-more" onTap="onOrderTap">
+        <text>全部订单</text>
+        <text class="arrow">></text>
+      </view>
+    </view>
+    <view class="order-tabs">
+      <view class="order-tab" data-status="pending" onTap="onOrderTap">
+        <view class="tab-icon-box">
+          <image class="tab-icon" src="/images/order-pending.png" mode="aspectFit" />
+          <view class="badge" a:if="{{stats.pendingPayment > 0}}">{{stats.pendingPayment}}</view>
+        </view>
+        <text class="tab-text">待支付</text>
+      </view>
+      <view class="order-tab" data-status="paid" onTap="onOrderTap">
+        <view class="tab-icon-box">
+          <image class="tab-icon" src="/images/order-paid.png" mode="aspectFit" />
+        </view>
+        <text class="tab-text">待发货</text>
+      </view>
+      <view class="order-tab" data-status="shipped" onTap="onOrderTap">
+        <view class="tab-icon-box">
+          <image class="tab-icon" src="/images/order-shipped.png" mode="aspectFit" />
+          <view class="badge" a:if="{{stats.inUse > 0}}">{{stats.inUse}}</view>
+        </view>
+        <text class="tab-text">待归还</text>
+      </view>
+      <view class="order-tab" data-status="completed" onTap="onOrderTap">
+        <view class="tab-icon-box">
+          <image class="tab-icon" src="/images/order-completed.png" mode="aspectFit" />
+        </view>
+        <text class="tab-text">已完成</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view 
+      class="menu-item" 
+      a:for="{{menuList}}" 
+      a:key="title"
+      data-url="{{item.url}}"
+      data-title="{{item.title}}"
+      onTap="onMenuTap"
+    >
+      <image class="menu-icon" src="{{item.icon}}" mode="aspectFit" />
+      <view class="menu-content">
+        <text class="menu-title">{{item.title}}</text>
+        <text class="menu-desc">{{item.desc}}</text>
+      </view>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+
+  <view class="promo-section">
+    <view class="promo-card">
+      <view class="promo-content">
+        <text class="promo-title">邀请好友得优惠</text>
+        <text class="promo-desc">每邀请一位好友，双方各得50元优惠券</text>
+      </view>
+      <button class="promo-btn">立即邀请</button>
+    </view>
+  </view>
+
+  <view class="logout-section" a:if="{{isLoggedIn}}">
+    <button class="logout-btn" onTap="onLogoutTap">退出登录</button>
+  </view>
+</view>

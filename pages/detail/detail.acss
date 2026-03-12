@@ -1,0 +1,383 @@
+.page-detail {
+  min-height: 100vh;
+  background-color: #F5F5F5;
+  padding-bottom: 120rpx;
+}
+
+.product-swiper {
+  width: 100%;
+  height: 500rpx;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+}
+
+.product-header {
+  background-color: #FFFFFF;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.product-name {
+  font-size: 36rpx;
+  color: #333333;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.product-tags {
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.tag {
+  font-size: 22rpx;
+  color: #1E90FF;
+  background-color: rgba(30, 144, 255, 0.1);
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.price-box {
+  display: flex;
+  align-items: baseline;
+}
+
+.price-unit {
+  font-size: 28rpx;
+  color: #FF4D4F;
+}
+
+.price-value {
+  font-size: 48rpx;
+  color: #FF4D4F;
+  font-weight: bold;
+}
+
+.price-suffix {
+  font-size: 24rpx;
+  color: #FF4D4F;
+}
+
+.monthly-price-box {
+  display: flex;
+  align-items: baseline;
+}
+
+.monthly-label {
+  font-size: 24rpx;
+  color: #999999;
+  margin-right: 8rpx;
+}
+
+.monthly-value {
+  font-size: 32rpx;
+  color: #666666;
+  font-weight: 500;
+}
+
+.specs-card {
+  background-color: #FFFFFF;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.specs-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.specs-row:last-child {
+  border-bottom: none;
+}
+
+.specs-label {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.specs-value {
+  font-size: 28rpx;
+  color: #333333;
+  flex: 1;
+  text-align: right;
+}
+
+.deposit-box {
+  display: flex;
+  align-items: center;
+}
+
+.deposit-value {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.credit-free {
+  font-size: 22rpx;
+  color: #52C41A;
+  background-color: rgba(82, 196, 26, 0.1);
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  margin-left: 12rpx;
+}
+
+.credit-box {
+  display: flex;
+  align-items: center;
+}
+
+.credit-score {
+  font-size: 28rpx;
+  color: #FF9500;
+  font-weight: 500;
+}
+
+.credit-tip {
+  font-size: 22rpx;
+  color: #52C41A;
+  margin-left: 12rpx;
+}
+
+.card {
+  background-color: #FFFFFF;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.config-title {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.specification-select {
+  margin-bottom: 24rpx;
+}
+
+.specification-select:last-child {
+  margin-bottom: 0;
+}
+
+.specification-title {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 500;
+  margin-bottom: 16rpx;
+}
+
+.specification-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.specification-item {
+  padding: 16rpx 32rpx;
+  border: 1rpx solid #E0E0E0;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  color: #666666;
+  background-color: #FAFAFA;
+}
+
+.specification-item.active {
+  border-color: #1E90FF;
+  color: #1E90FF;
+  background-color: rgba(30, 144, 255, 0.1);
+}
+
+.config-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.config-label {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.rent-type-group {
+  display: flex;
+}
+
+.rent-type-item {
+  display: flex;
+  align-items: center;
+  margin-left: 40rpx;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.days-selector {
+  display: flex;
+  align-items: center;
+}
+
+.step-btn {
+  width: 56rpx;
+  height: 56rpx;
+  border: 1rpx solid #DDDDDD;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: #666666;
+}
+
+.days-input {
+  width: 100rpx;
+  height: 56rpx;
+  text-align: center;
+  font-size: 28rpx;
+  border: 1rpx solid #DDDDDD;
+  margin: 0 16rpx;
+  border-radius: 8rpx;
+}
+
+.days-unit {
+  font-size: 28rpx;
+  color: #666666;
+  margin-right: 16rpx;
+}
+
+.price-summary {
+  background-color: #FFF7E6;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.summary-row.total {
+  border-top: 1rpx solid #FFE7BA;
+  padding-top: 20rpx;
+  margin-top: 12rpx;
+}
+
+.summary-label {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.summary-value {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.summary-value.price {
+  color: #FF4D4F;
+  font-weight: bold;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.feature-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 16rpx;
+}
+
+.description-text {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 44rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.price-preview {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+}
+
+.preview-label {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.preview-value {
+  font-size: 40rpx;
+  color: #FF4D4F;
+  font-weight: bold;
+}
+
+.rent-btn {
+  background: linear-gradient(135deg, #1E90FF 0%, #0066CC 100%);
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 44rpx;
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0;
+  border: none;
+}
+
+.loading-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #999999;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 4rpx solid #E0E0E0;
+  border-top-color: #1E90FF;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 20rpx;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,167 @@
+.page-category {
+  min-height: 100vh;
+  background-color: #F5F5F5;
+}
+
+.tabs-container {
+  background-color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tabs {
+  display: flex;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #EEEEEE;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: #666666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #1E90FF;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48rpx;
+  height: 4rpx;
+  background-color: #1E90FF;
+  border-radius: 2rpx;
+}
+
+.product-list {
+  padding: 20rpx;
+}
+
+.product-card {
+  display: flex;
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.product-image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 12rpx;
+  flex-shrink: 0;
+}
+
+.product-info {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-specs {
+  font-size: 24rpx;
+  color: #999999;
+  margin-bottom: 12rpx;
+}
+
+.product-tags {
+  margin-bottom: 12rpx;
+}
+
+.price-box {
+  display: flex;
+  align-items: baseline;
+}
+
+.price-unit {
+  font-size: 24rpx;
+  color: #FF4D4F;
+}
+
+.price-value {
+  font-size: 40rpx;
+  color: #FF4D4F;
+  font-weight: bold;
+}
+
+.product-price-row {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8rpx;
+}
+
+.monthly-price {
+  font-size: 24rpx;
+  color: #999999;
+  margin-left: 16rpx;
+}
+
+.deposit-info {
+  display: flex;
+  align-items: center;
+}
+
+.deposit-label {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.deposit-value {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.deposit-tip {
+  font-size: 22rpx;
+  color: #52C41A;
+  margin-left: 8rpx;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  color: #999999;
+  font-size: 28rpx;
+}
+
+.loading-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60rpx 0;
+  color: #999999;
+}

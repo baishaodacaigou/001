@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/detail/detail",
+    "pages/order/order",
+    "pages/order/list",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "defaultTitle": "肌肉人AI租赁",
+    "titleBarColor": "#1E90FF",
+    "backgroundColor": "#F5F5F5",
+    "pullRefresh": true
+  },
+  "tabBar": {
+    "textColor": "#999999",
+    "selectedColor": "#1E90FF",
+    "backgroundColor": "#FFFFFF",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "name": "分类"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "name": "订单"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "name": "我的"
+      }
+    ]
+  }
+}

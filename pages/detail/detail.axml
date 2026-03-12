@@ -1,0 +1,136 @@
+<view class="page-detail" a:if="{{!loading && productInfo}}">
+  <swiper class="product-swiper" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+    <swiper-item a:for="{{productInfo.images}}" a:key="*this">
+      <image class="product-image" src="{{item}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <view class="product-header">
+    <text class="product-name">{{productInfo.name}}</text>
+    <view class="product-tags">
+      <text class="tag" a:for="{{productInfo.tags}}" a:for-item="tag" a:key="index">{{tag}}</text>
+    </view>
+    <view class="price-row">
+      <view class="price-box">
+        <text class="price-unit">¥</text>
+        <text class="price-value">{{productInfo.daily_price}}</text>
+        <text class="price-suffix">/天起</text>
+      </view>
+      <view class="monthly-price-box">
+        <text class="monthly-label">月租</text>
+        <text class="monthly-value">¥{{productInfo.monthly_price}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="specs-card card" a:if="{{specificationList.length > 0}}">
+    <view class="config-title">选择规格</view>
+    <view class="specification-select" a:for="{{specificationList}}" a:for-item="specItem" a:key="key">
+      <view class="specification-title">{{specItem.title}}</view>
+      <view class="specification-list">
+        <view
+          class="specification-item {{selectSku[specItem.key].name === item.name ? 'active' : ''}}"
+          a:for="{{specItem.list}}"
+          a:for-item="item"
+          a:key="name"
+          data-specification="{{{...item, key: specItem.key}}}"
+          onTap="onSkuTap"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="specs-card card">
+    <view class="specs-row">
+      <text class="specs-label">规格参数</text>
+      <text class="specs-value">{{productInfo.specs}}</text>
+    </view>
+    <view class="specs-row">
+      <text class="specs-label">押金金额</text>
+      <view class="deposit-box">
+        <text class="deposit-value">¥{{productInfo.deposit}}</text>
+        <text class="credit-free" a:if="{{creditFree}}">信用免押</text>
+      </view>
+    </view>
+    <view class="specs-row" a:if="{{creditScore > 0}}">
+      <text class="specs-label">芝麻信用</text>
+      <view class="credit-box">
+        <text class="credit-score">{{creditScore}}分</text>
+        <text class="credit-tip" a:if="{{creditFree}}">可免押¥{{creditFreeAmount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="rent-config card">
+    <view class="config-title">租赁配置</view>
+    
+    <view class="config-row">
+      <text class="config-label">租赁方式</text>
+      <radio-group class="rent-type-group" onChange="onRentTypeChange">
+        <label class="rent-type-item">
+          <radio value="daily" checked="{{rentType === 'daily'}}" color="#1E90FF" />
+          <text>按天租</text>
+        </label>
+        <label class="rent-type-item">
+          <radio value="monthly" checked="{{rentType === 'monthly'}}" color="#1E90FF" />
+          <text>按月租</text>
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="config-row">
+      <text class="config-label">租赁时长</text>
+      <view class="days-selector">
+        <view class="step-btn" data-type="minus" onTap="onDaysStep">-</view>
+        <input class="days-input" type="number" value="{{rentDays}}" onInput="onDaysChange" />
+        <text class="days-unit">天</text>
+        <view class="step-btn" data-type="plus" onTap="onDaysStep">+</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="price-summary card">
+    <view class="summary-row">
+      <text class="summary-label">租金总计</text>
+      <text class="summary-value price">¥{{totalPrice}}</text>
+    </view>
+    <view class="summary-row" a:if="{{!creditFree}}">
+      <text class="summary-label">押金</text>
+      <text class="summary-value">¥{{depositAmount}}</text>
+    </view>
+    <view class="summary-row total">
+      <text class="summary-label">应付总额</text>
+      <text class="summary-value price">¥{{totalPrice + depositAmount}}</text>
+    </view>
+  </view>
+
+  <view class="features-card card">
+    <view class="config-title">服务保障</view>
+    <view class="features-list">
+      <view class="feature-item" a:for="{{productInfo.features}}" a:for-item="feature" a:key="index">
+        <image class="feature-icon" src="/images/check.png" mode="aspectFit" />
+        <text>{{feature}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="description-card card">
+    <view class="config-title">商品详情</view>
+    <text class="description-text">{{productInfo.description}}</text>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="price-preview">
+      <text class="preview-label">预估费用：</text>
+      <text class="preview-value">¥{{totalPrice}}</text>
+    </view>
+    <button class="rent-btn" onTap="onRentNow">立即租赁</button>
+  </view>
+</view>
+
+<view class="loading-page" a:if="{{loading}}">
+  <view class="loading-spinner"></view>
+  <text>加载中...</text>
+</view>

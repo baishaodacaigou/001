@@ -1,0 +1,83 @@
+<view class="page-order">
+  <view class="tabs-container">
+    <view class="tabs">
+      <view 
+        class="tab-item {{currentTab === item.key ? 'active' : ''}}" 
+        a:for="{{tabs}}" 
+        a:key="key"
+        data-key="{{item.key}}"
+        onTap="onTabChange"
+      >
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-list" a:if="{{!loading && orderList.length > 0}}">
+    <view 
+      class="order-card" 
+      a:for="{{orderList}}" 
+      a:key="id"
+      data-id="{{item.id}}"
+      onTap="onOrderTap"
+    >
+      <view class="order-header">
+        <text class="order-id">订单号：{{item.order_no}}</text>
+        <text class="order-status status-{{item.status}}">{{item.status === 'pending' ? '待支付' : item.status === 'paid' ? '待发货' : item.status === 'shipped' ? '待归还' : item.status === 'completed' ? '已完成' : '已取消'}}</text>
+      </view>
+      
+      <view class="order-content">
+        <image class="product-image" src="{{item.product_image}}" mode="aspectFill" />
+        <view class="product-info">
+          <text class="product-name">{{item.product_name}}</text>
+          <view class="rent-info">
+            <text>租期：{{item.rent_days}}天</text>
+          </view>
+          <view class="price-info">
+            <text class="total-price">¥{{item.total_price}}</text>
+            <text class="deposit-info" a:if="{{item.deposit > 0}}">含押金¥{{item.deposit}}</text>
+            <text class="deposit-info" a:else>信用免押</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="order-footer">
+        <text class="order-time">下单时间：{{item.created_at}}</text>
+        <view class="action-btns">
+          <button 
+            class="action-btn cancel" 
+            a:if="{{item.status === 'pending'}}"
+            data-id="{{item.id}}"
+            catchTap="onCancelTap"
+          >取消订单</button>
+          <button 
+            class="action-btn primary" 
+            a:if="{{item.status === 'pending'}}"
+            data-id="{{item.id}}"
+            catchTap="onPayTap"
+          >立即支付</button>
+          <button 
+            class="action-btn primary" 
+            a:if="{{item.status === 'shipped'}}"
+            data-id="{{item.id}}"
+            catchTap="onReturnTap"
+          >申请归还</button>
+          <button 
+            class="action-btn" 
+            a:if="{{item.status === 'completed'}}"
+          >再次租赁</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" a:if="{{!loading && orderList.length === 0}}">
+    <image class="empty-icon" src="/images/empty-order.png" mode="aspectFit" />
+    <text class="empty-text">暂无相关订单</text>
+    <button class="go-shopping-btn" onTap="onGoHome">去逛逛</button>
+  </view>
+
+  <view class="loading-state" a:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+</view>
